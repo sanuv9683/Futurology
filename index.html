@@ -1,10 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Futurology</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Imaging Technology</title>
+  <style>
+    /* Reset & Basic Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #eee;
+      line-height: 1.6;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0056b3;
+    }
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      width: 100%;
+      background-color: #1e1e1e;
+      padding: 10px 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      margin-left: 20px;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('images/hero-image.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 1.5em;
+    }
+    .hero .btn {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 4px;
+    }
+    /* Section Titles */
+    section {
+      padding: 80px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title h2 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    /* Content Sections */
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    /* Cards for Types */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      width: 300px;
+      overflow: hidden;
+      text-align: left;
+    }
+    .card img {
+      width: 100%;
+      display: block;
+    }
+    .card h3, .card p {
+      padding: 10px;
+    }
+    /* Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .gallery-item {
+      flex: 1 1 300px;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+    }
+    /* Contact Form */
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+    .contact-form button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #007BFF;
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Footer */
+    footer {
+      background-color: #1e1e1e;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    /* Smooth scroll offset for fixed header */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Media Query for Responsiveness */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background-color: #1e1e1e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        display: none;
+        width: 200px;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      header {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>Futurology</h1>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="logo">ImagingTech</div>
+    <nav>
+      <ul id="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#surveillance">Surveillance &amp; Security</a></li>
+        <li><a href="#innovations">Innovations</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Revolutionizing Visual Perception</h1>
+    <p>Explore the evolution and innovation in imaging technology—from the early days of optical devices to today’s AI-driven systems.</p>
+    <a class="btn" href="#history">Learn More</a>
+  </section>
+
+  <!-- History Section -->
+  <section id="history">
+    <div class="section-title">
+      <h2>History</h2>
+      <p>The Evolution of Imaging Technology</p>
+    </div>
+    <div class="content">
+      <h3>Early Beginnings</h3>
+      <p>From camera obscura to the invention of lenses, early breakthroughs set the stage for modern imaging.</p>
+      <h3>The Photographic Era</h3>
+      <p>Film photography revolutionized visual storytelling and preserved history through tangible media.</p>
+      <h3>The Digital Revolution</h3>
+      <p>The transition from analog to digital has led to high-definition imaging and advanced image processing.</p>
+    </div>
+  </section>
+
+  <!-- Types Section -->
+  <section id="types">
+    <div class="section-title">
+      <h2>Types of Imaging Technology</h2>
+      <p>Various Methods to Capture Our World</p>
+    </div>
+    <div class="content card-container">
+      <div class="card">
+        <img src="images/optical.jpg" alt="Optical Imaging">
+        <h3>Optical Imaging</h3>
+        <p>Capturing images using visible light.</p>
+      </div>
+      <div class="card">
+        <img src="images/digital.jpg" alt="Digital Imaging">
+        <h3>Digital Imaging</h3>
+        <p>Revolution from film to digital sensors.</p>
+      </div>
+      <div class="card">
+        <img src="images/thermal.jpg" alt="Thermal Imaging">
+        <h3>Thermal Imaging</h3>
+        <p>Visualizing heat patterns for various applications.</p>
+      </div>
+      <div class="card">
+        <img src="images/xray.jpg" alt="X-ray Imaging">
+        <h3>X-ray Imaging</h3>
+        <p>Used extensively in medicine and security.</p>
+      </div>
+      <div class="card">
+        <img src="images/mri.jpg" alt="MRI">
+        <h3>MRI</h3>
+        <p>Using magnetic resonance for detailed internal imaging.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surveillance & Security Section -->
+  <section id="surveillance">
+    <div class="section-title">
+      <h2>Surveillance &amp; Security</h2>
+      <p>Modern Systems for Protection and Safety</p>
+    </div>
+    <div class="content">
+      <h3>Advanced Surveillance Systems</h3>
+      <p>Integrating digital sensors, AI, and real-time analytics for enhanced security measures.</p>
+      <h3>Technological Innovations</h3>
+      <p>Infrared imaging, motion detection, and smart video analytics are just some of the breakthroughs driving this field forward.</p>
+    </div>
+  </section>
+
+  <!-- Innovations Section -->
+  <section id="innovations">
+    <div class="section-title">
+      <h2>Innovations</h2>
+      <p>Breaking New Ground in Imaging Technology</p>
+    </div>
+    <div class="content">
+      <h3>Latest Breakthroughs</h3>
+      <p>AI-powered image recognition, high-resolution sensors, and real-time processing are transforming the industry.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Gallery</h2>
+      <p>See Imaging Technology in Action</p>
+    </div>
+    <div class="content gallery">
+      <div class="gallery-item">
+        <img src="images/gallery1.jpg" alt="Gallery Image 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery2.jpg" alt="Gallery Image 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/gallery3.jpg" alt="Gallery Image 3">
+      </div>
+      <!-- You can add more gallery images here -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you</p>
+    </div>
+    <div class="content contact-form">
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Imaging Technology. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Optional: JavaScript for a responsive nav toggle (if you’d like to add a hamburger menu on mobile)
+    // For now, the navigation is simple and relies on CSS media queries.
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("Imaging Technology Single Page Loaded");
+    });
+  </script>
 </body>
 </html>
