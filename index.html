@@ -1,347 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Imaging Technology</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imaging Technology - Surveillance & Security</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* Reset & Basic Styles */
+    :root {
+      --blue: #1a73e8;
+      --green: #34a853;
+      --yellow: #fbbc05;
+      --red: #ea4335;
+      --light-gray: #f9fafb;
+      --dark-gray: #1f2937;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #eee;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
     }
-    a {
-      color: #007BFF;
-      text-decoration: none;
-      transition: color 0.3s ease;
+
+    header.hero {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
     }
-    a:hover {
-      color: #0056b3;
+
+    header.hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
     }
-    /* Header & Navigation */
-    header {
-      position: fixed;
-      width: 100%;
-      background-color: #1e1e1e;
-      padding: 10px 20px;
+
+    header.hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      background: white;
+      color: var(--blue);
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #e5e7eb;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      padding: 1rem 2rem;
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      margin-left: 20px;
-    }
-    /* Hero Section */
-    .hero {
-      background: url('images/hero-image.jpg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin-bottom: 1.5em;
-    }
-    .hero .btn {
-      padding: 10px 20px;
-      background-color: #007BFF;
-      color: #fff;
-      border-radius: 4px;
-    }
-    /* Section Titles */
-    section {
-      padding: 80px 20px;
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .section-title h2 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    /* Content Sections */
-    .content {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    /* Cards for Types */
-    .card-container {
-      display: flex;
+      gap: 1rem;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
     }
-    .card {
-      background-color: #1e1e1e;
+
+    nav button {
+      background-color: var(--yellow);
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
-      width: 300px;
-      overflow: hidden;
-      text-align: left;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .card img {
-      width: 100%;
-      display: block;
+
+    nav button:hover {
+      background-color: var(--red);
+      color: white;
     }
-    .card h3, .card p {
-      padding: 10px;
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
     }
-    /* Gallery */
-    .gallery {
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--blue);
+    }
+
+    .card h2 {
+      color: var(--green);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h2 i {
+      font-size: 1.5rem;
+    }
+
+    .overview-content {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
+      align-items: center;
+      gap: 2rem;
     }
-    .gallery-item {
-      flex: 1 1 300px;
-    }
-    .gallery-item img {
+
+    .overview-content img {
       width: 100%;
-      display: block;
-      border-radius: 4px;
+      max-width: 350px;
+      border-radius: 8px;
     }
-    /* Contact Form */
-    .contact-form {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: left;
+
+    .overview-content .text {
+      flex: 1;
+      min-width: 280px;
     }
-    .contact-form label {
-      display: block;
-      margin: 15px 0 5px;
+
+    .overview-content .text p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
-    }
-    .contact-form button {
-      margin-top: 20px;
-      padding: 10px;
-      width: 100%;
-      background-color: #007BFF;
-      border: none;
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    /* Footer */
+
     footer {
-      background-color: #1e1e1e;
       text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    /* Smooth scroll offset for fixed header */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Media Query for Responsiveness */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background-color: #1e1e1e;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        display: none;
-        width: 200px;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-      header {
-        flex-wrap: wrap;
-      }
+      padding: 2rem;
+      background-color: #f3f4f6;
+      font-size: 0.9rem;
+      color: #6b7280;
     }
   </style>
+
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header>
-    <div class="logo">ImagingTech</div>
-    <nav>
-      <ul id="navList">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#history">History</a></li>
-        <li><a href="#types">Types</a></li>
-        <li><a href="#surveillance">Surveillance &amp; Security</a></li>
-        <li><a href="#innovations">Innovations</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
+<header class="hero">
+  <h1>Imaging Technology in Surveillance</h1>
+  <p>Explore how modern imaging systems empower smart cities, ensure public safety, and shape our secure future.</p>
+  <button class="cta-button" onclick="scrollToSection('overview')">Explore Topics</button>
+</header>
+
+<nav>
+  <button onclick="scrollToSection('overview')">Overview</button>
+  <button onclick="scrollToSection('main-topic')">Imaging Tech</button>
+  <button onclick="scrollToSection('history')">History</button>
+  <button onclick="scrollToSection('applications')">Applications</button>
+  <button onclick="scrollToSection('advancements')">Technologies</button>
+  <button onclick="scrollToSection('challenges')">Challenges</button>
+  <button onclick="scrollToSection('factors')">Social & Legal</button>
+  <button onclick="scrollToSection('future')">Future</button>
+  <button onclick="scrollToSection('fifty-years')">In 50 Years</button>
+</nav>
+
+<main>
+  <section id="overview" class="card">
+    <h2><i class="fas fa-eye"></i> Overview</h2>
+    <div class="overview-content">
+      <img src="images/overview.png" alt="Surveillance Overview Illustration">
+      <div class="text">
+        <p>Imaging technology is at the heart of modern surveillance systems. It enables smart monitoring, object tracking, facial recognition, and real-time threat analysis in both public and private environments.</p>
+        <p>From street cameras to smart homes, these technologies provide enhanced situational awareness and security. With the integration of AI and big data, imaging systems can now not only observe but also interpret behaviors, predict incidents, and trigger automated responses, making them invaluable for proactive security infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="main-topic" class="card" style="border-left: 6px solid #34a853; background: #ffffff;">
+    <h2 style="color: #1a73e8;"><i class="fas fa-camera" style="color: #ea4335;"></i> What is Imaging Technology?</h2>
+    <div class="text" style="margin-top: 1.5rem;">
+      <p style="margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.6;">
+        <strong style="color: #ea4335;">Imaging technology</strong> involves the use of digital devices and systems to capture, process, and analyze visual information. It serves as a cornerstone in various sectors, not just in surveillance and security, but across fields that require visual insight and diagnostics.
+      </p>
+
+      <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.6;">
+        Advanced imaging systems include high-resolution cameras, thermal and infrared sensors, 3D scanners, and AI-powered visual recognition tools. These tools are widely used for real-time analysis, precision detection, and enhanced decision-making across domains.
+      </p>
+
+      <ul style="list-style: none; padding-left: 0;">
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+          <i class="fas fa-shield-alt" style="color: #1a73e8; font-size: 1.2rem;"></i>
+          <span><strong>Security & Surveillance:</strong> Monitor environments, detect threats, and track individuals using technologies like CCTV, thermal cameras, and AI object recognition.</span>
+        </li>
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+          <i class="fas fa-stethoscope" style="color: #34a853; font-size: 1.2rem;"></i>
+          <span><strong>Medical Imaging:</strong> Diagnose illnesses and guide treatments using X-rays, MRIs, CT scans, and ultrasounds to visualize internal body structures.</span>
+        </li>
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+          <i class="fas fa-industry" style="color: #fbbc05; font-size: 1.2rem;"></i>
+          <span><strong>Industrial & Manufacturing:</strong> Improve production quality and automate processes with machine vision systems, 3D scanners, and defect detection tools.</span>
+        </li>
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+          <i class="fas fa-cogs" style="color: #ea4335; font-size: 1.2rem;"></i>
+          <span><strong>Scientific & Research:</strong> Conduct high-detail imaging of microscopic, molecular, and astronomical data using electron microscopes and space telescopes.</span>
+        </li>
+        <li style="margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
+          <i class="fas fa-leaf" style="color: #0f9d58; font-size: 1.2rem;"></i>
+          <span><strong>Environmental Monitoring:</strong> Analyze land use, crop health, and climate change using drones, satellite imaging, and hyperspectral sensors.</span>
+        </li>
       </ul>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h1>Revolutionizing Visual Perception</h1>
-    <p>Explore the evolution and innovation in imaging technology—from the early days of optical devices to today’s AI-driven systems.</p>
-    <a class="btn" href="#history">Learn More</a>
-  </section>
-
-  <!-- History Section -->
-  <section id="history">
-    <div class="section-title">
-      <h2>History</h2>
-      <p>The Evolution of Imaging Technology</p>
-    </div>
-    <div class="content">
-      <h3>Early Beginnings</h3>
-      <p>From camera obscura to the invention of lenses, early breakthroughs set the stage for modern imaging.</p>
-      <h3>The Photographic Era</h3>
-      <p>Film photography revolutionized visual storytelling and preserved history through tangible media.</p>
-      <h3>The Digital Revolution</h3>
-      <p>The transition from analog to digital has led to high-definition imaging and advanced image processing.</p>
     </div>
   </section>
 
-  <!-- Types Section -->
-  <section id="types">
-    <div class="section-title">
-      <h2>Types of Imaging Technology</h2>
-      <p>Various Methods to Capture Our World</p>
+  <section id="history" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #ea4335; text-align: center; margin-bottom: 2rem;"><i class="fas fa-history" style="color: #1a73e8;"></i> A Brief History</h2>
+    <div style="position: relative; padding-left: 40px;">
+      <div style="position: absolute; left: 24px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #1a73e8, #fbbc05, #34a853, #ea4335); border-radius: 4px;"></div>
+
+      <div style="margin-bottom: 3rem; position: relative;">
+        <div style="position: absolute; left: -10px; top: 0; background: #1a73e8; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+          <i class="fas fa-video"></i>
+        </div>
+        <div style="margin-left: 60px;">
+          <h4 style="color: #1a73e8; margin-bottom: 0.5rem;">1940s–1970s – Analog Era</h4>
+          <p style="margin: 0;">Closed-Circuit Television (CCTV) was introduced for security and military surveillance. These systems recorded on tape with limited video quality and storage capabilities.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 3rem; position: relative;">
+        <div style="position: absolute; left: -10px; top: 0; background: #fbbc05; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+          <i class="fas fa-desktop"></i>
+        </div>
+        <div style="margin-left: 60px;">
+          <h4 style="color: #fbbc05; margin-bottom: 0.5rem;">1980s–1990s – Digital Transition</h4>
+          <p style="margin: 0;">Digital cameras and image sensors led to better resolution and more efficient data storage. Early computer vision techniques started appearing in research and security systems.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 3rem; position: relative;">
+        <div style="position: absolute; left: -10px; top: 0; background: #34a853; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div style="margin-left: 60px;">
+          <h4 style="color: #34a853; margin-bottom: 0.5rem;">2000s – Networked Systems</h4>
+          <p style="margin: 0;">IP (Internet Protocol) cameras allowed real-time remote monitoring. Surveillance became scalable, enabling centralized control across cities and industries.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 3rem; position: relative;">
+        <div style="position: absolute; left: -10px; top: 0; background: #ea4335; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div style="margin-left: 60px;">
+          <h4 style="color: #ea4335; margin-bottom: 0.5rem;">2010s–2020s – Smart & AI Integration</h4>
+          <p style="margin: 0;">Artificial Intelligence, facial recognition, behavior prediction, and cloud-based analytics turned imaging into an intelligent ecosystem.</p>
+        </div>
+      </div>
     </div>
-    <div class="content card-container">
-      <div class="card">
-        <img src="images/optical.jpg" alt="Optical Imaging">
-        <h3>Optical Imaging</h3>
-        <p>Capturing images using visible light.</p>
+
+    <p style="margin-top: 2rem; font-size: 1.05rem; line-height: 1.6;">
+      The journey from analog to AI-driven systems shows how imaging technology has advanced from passive observation to proactive intelligence. With ongoing innovation, it's now shaping the future of cities, healthcare, automation, and beyond.
+    </p>
+  </section>
+
+
+  <section id="applications" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #34a853; text-align: center; margin-bottom: 2rem;"><i class="fas fa-th-list" style="color: #1a73e8;"></i> Key Applications</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div style="text-align: center;">
+        <i class="fas fa-city" style="color: #1a73e8; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h4 style="color: #1a73e8;">Public Safety</h4>
+        <p>Used for real-time monitoring in cities, public transportation, and major events to ensure public protection.</p>
       </div>
-      <div class="card">
-        <img src="images/digital.jpg" alt="Digital Imaging">
-        <h3>Digital Imaging</h3>
-        <p>Revolution from film to digital sensors.</p>
+      <div style="text-align: center;">
+        <i class="fas fa-user-secret" style="color: #ea4335; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h4 style="color: #ea4335;">Crime Prevention</h4>
+        <p>Helps identify suspicious behavior or threats using pattern recognition, facial tracking, and AI surveillance.</p>
       </div>
-      <div class="card">
-        <img src="images/thermal.jpg" alt="Thermal Imaging">
-        <h3>Thermal Imaging</h3>
-        <p>Visualizing heat patterns for various applications.</p>
+      <div style="text-align: center;">
+        <i class="fas fa-car" style="color: #fbbc05; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h4 style="color: #fbbc05;">Traffic Management</h4>
+        <p>Monitors and controls vehicle flow, detects violations, and enhances road safety with smart imaging tools.</p>
       </div>
-      <div class="card">
-        <img src="images/xray.jpg" alt="X-ray Imaging">
-        <h3>X-ray Imaging</h3>
-        <p>Used extensively in medicine and security.</p>
+      <div style="text-align: center;">
+        <i class="fas fa-home" style="color: #34a853; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h4 style="color: #34a853;">Personal Security</h4>
+        <p>Home surveillance systems use motion detection and smart alerts to protect property and occupants.</p>
       </div>
-      <div class="card">
-        <img src="images/mri.jpg" alt="MRI">
-        <h3>MRI</h3>
-        <p>Using magnetic resonance for detailed internal imaging.</p>
+      <div style="text-align: center;">
+        <i class="fas fa-building" style="color: #1a73e8; font-size: 2rem; margin-bottom: 0.5rem;"></i>
+        <h4 style="color: #1a73e8;">Workplace Surveillance</h4>
+        <p>Used in corporate and industrial environments to improve safety, prevent theft, and monitor compliance.</p>
       </div>
     </div>
   </section>
 
-  <!-- Surveillance & Security Section -->
-  <section id="surveillance">
-    <div class="section-title">
-      <h2>Surveillance &amp; Security</h2>
-      <p>Modern Systems for Protection and Safety</p>
-    </div>
-    <div class="content">
-      <h3>Advanced Surveillance Systems</h3>
-      <p>Integrating digital sensors, AI, and real-time analytics for enhanced security measures.</p>
-      <h3>Technological Innovations</h3>
-      <p>Infrared imaging, motion detection, and smart video analytics are just some of the breakthroughs driving this field forward.</p>
-    </div>
-  </section>
 
-  <!-- Innovations Section -->
-  <section id="innovations">
-    <div class="section-title">
-      <h2>Innovations</h2>
-      <p>Breaking New Ground in Imaging Technology</p>
-    </div>
-    <div class="content">
-      <h3>Latest Breakthroughs</h3>
-      <p>AI-powered image recognition, high-resolution sensors, and real-time processing are transforming the industry.</p>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery">
-    <div class="section-title">
-      <h2>Gallery</h2>
-      <p>See Imaging Technology in Action</p>
-    </div>
-    <div class="content gallery">
-      <div class="gallery-item">
-        <img src="images/gallery1.jpg" alt="Gallery Image 1">
+  <section id="advancements" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #1a73e8; text-align: center; margin-bottom: 2rem;"><i class="fas fa-microchip" style="color: #34a853;"></i> Technological Advancements</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-thermometer-half" style="color: #ea4335; font-size: 2.5rem;"></i>
+        <div>
+          <h4 style="color: #ea4335; margin: 0 0 0.5rem;">Thermal Imaging</h4>
+          <p style="margin: 0;">Uses infrared radiation to detect heat signatures, enabling vision in darkness and through smoke or fog.</p>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="images/gallery2.jpg" alt="Gallery Image 2">
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-low-vision" style="color: #fbbc05; font-size: 2.5rem;"></i>
+        <div>
+          <h4 style="color: #fbbc05; margin: 0 0 0.5rem;">Night Vision</h4>
+          <p style="margin: 0;">Improves low-light visibility through image intensification and infrared illumination.</p>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="images/gallery3.jpg" alt="Gallery Image 3">
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-brain" style="color: #1a73e8; font-size: 2.5rem;"></i>
+        <div>
+          <h4 style="color: #1a73e8; margin: 0 0 0.5rem;">AI Surveillance</h4>
+          <p style="margin: 0;">Leverages artificial intelligence to detect unusual behavior and automate real-time alerts.</p>
+        </div>
       </div>
-      <!-- You can add more gallery images here -->
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-user-check" style="color: #34a853; font-size: 2.5rem;"></i>
+        <div>
+          <h4 style="color: #34a853; margin: 0 0 0.5rem;">Facial Recognition</h4>
+          <p style="margin: 0;">Identifies individuals by analyzing facial features and comparing with stored profiles.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-chart-line" style="color: #fbbc05; font-size: 2.5rem;"></i>
+        <div>
+          <h4 style="color: #fbbc05; margin: 0 0 0.5rem;">Predictive Analytics</h4>
+          <p style="margin: 0;">Analyzes trends and patterns in visual data to forecast potential incidents before they occur.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="section-title">
-      <h2>Contact Us</h2>
-      <p>We’d love to hear from you</p>
-    </div>
-    <div class="content contact-form">
-      <form action="#" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <button type="submit">Send Message</button>
-      </form>
+  <section id="challenges" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #ea4335; text-align: center; margin-bottom: 2rem;"><i class="fas fa-exclamation-circle" style="color: #ea4335;"></i> Challenges & Ethical Issues</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div style="background: #fef7f7; padding: 1.5rem; border-left: 6px solid #1a73e8; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <i class="fas fa-user-shield" style="color: #1a73e8; font-size: 2rem;"></i>
+        </div>
+        <h4 style="color: #1a73e8; text-align: center;">Privacy & Data Security</h4>
+        <p style="text-align: center;">Constant surveillance may infringe on personal rights and poses risks of data breaches if not properly secured.</p>
+      </div>
+
+      <div style="background: #fff8e1; padding: 1.5rem; border-left: 6px solid #fbbc05; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <i class="fas fa-users-slash" style="color: #fbbc05; font-size: 2rem;"></i>
+        </div>
+        <h4 style="color: #fbbc05; text-align: center;">Social Resistance</h4>
+        <p style="text-align: center;">Lack of transparency can lead to distrust and pushback from communities where surveillance is deployed.</p>
+      </div>
+
+      <div style="background: #f0fdf4; padding: 1.5rem; border-left: 6px solid #34a853; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+        <div style="text-align: center; margin-bottom: 1rem;">
+          <i class="fas fa-balance-scale" style="color: #34a853; font-size: 2rem;"></i>
+        </div>
+        <h4 style="color: #34a853; text-align: center;">Legal Compliance</h4>
+        <p style="text-align: center;">Imaging systems must comply with laws like GDPR, requiring consent and secure, ethical use of collected data.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Imaging Technology. All rights reserved.</p>
-  </footer>
+  <section id="factors" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #1a73e8; text-align: center; margin-bottom: 2rem;"><i class="fas fa-globe" style="color: #34a853;"></i> Social, Environmental & Legal Factors</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-bolt" style="color: #ea4335; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #ea4335; margin-bottom: 0.5rem;">High Energy Consumption</h4>
+          <p style="margin: 0;">Surveillance systems, especially those with live video feeds and AI processing, require significant energy — impacting environmental sustainability.</p>
+        </div>
+      </div>
 
-  <script>
-    // Optional: JavaScript for a responsive nav toggle (if you’d like to add a hamburger menu on mobile)
-    // For now, the navigation is simple and relies on CSS media queries.
-    document.addEventListener("DOMContentLoaded", function() {
-      console.log("Imaging Technology Single Page Loaded");
-    });
-  </script>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-map-marked-alt" style="color: #fbbc05; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #fbbc05; margin-bottom: 0.5rem;">Legal Variability</h4>
+          <p style="margin: 0;">Regulations regarding data usage, retention, and user consent vary across countries, complicating global implementation strategies.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-comments" style="color: #1a73e8; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #1a73e8; margin-bottom: 0.5rem;">Public Opinion</h4>
+          <p style="margin: 0;">Societal acceptance plays a key role. While some appreciate the added safety, others raise concerns about loss of privacy and misuse of data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="future" class="card" style="background: #ffffff; padding: 2rem;">
+    <h2 style="color: #34a853; text-align: center; margin-bottom: 2rem;"><i class="fas fa-forward" style="color: #1a73e8;"></i> Future Outlook</h2>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-city" style="color: #1a73e8; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #1a73e8; margin-bottom: 0.5rem;">Short Term (1–5 years)</h4>
+          <p style="margin: 0;">Integration of imaging technology with smart city infrastructure will enable real-time urban management, emergency response, and automated traffic control.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-brain" style="color: #fbbc05; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #fbbc05; margin-bottom: 0.5rem;">Medium Term (5–10 years)</h4>
+          <p style="margin: 0;">Predictive surveillance systems will become standard, using historical data and behavioral patterns to identify threats before they escalate.</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <i class="fas fa-robot" style="color: #ea4335; font-size: 2rem;"></i>
+        <div>
+          <h4 style="color: #ea4335; margin-bottom: 0.5rem;">Long Term (10+ years)</h4>
+          <p style="margin: 0;">Fully autonomous, AI-governed surveillance networks will minimize human intervention while adhering to global ethical standards for data use and privacy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fifty-years" class="card" style="background: linear-gradient(135deg, #f1f8e9, #e8f5e9); padding: 2.5rem; border-left: 6px solid #34a853;">
+    <h2 style="color: #34a853; text-align: center; font-size: 2rem; margin-bottom: 1rem;">
+      <i class="fas fa-rocket" style="color: #1a73e8;"></i> 50 Years Into the Future
+    </h2>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem;">
+      <img src="/mnt/data/image.png" alt="Futuristic Surveillance Illustration" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <p style="font-size: 1.1rem; line-height: 1.7; max-width: 800px;">
+        Step into a world where <strong style="color: #ea4335;">Robo Cops</strong> patrol smart cities, <strong style="color: #fbbc05;">Spy Bees</strong> flutter through urban skies, and <strong style="color: #1a73e8;">Neural Surveillance Networks</strong> track human behavior in real time. Orbiting satellites equipped with AI will watch over the planet, instantly detecting threats and responding within seconds.
+      </p>
+      <p style="font-size: 1.05rem; max-width: 760px;">
+        Surveillance will be <strong style="color: #34a853;">seamless, fully automated</strong>, and designed with built-in ethical compliance. With quantum imaging and bio-integrated sensors, future technologies will not just monitor—but anticipate needs and enhance safety proactively.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Imaging Technology Showcase. All rights reserved.
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
 </body>
 </html>
